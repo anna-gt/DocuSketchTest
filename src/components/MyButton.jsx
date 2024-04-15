@@ -21,7 +21,7 @@ const MyButton = () => {
 		setRandomIcon(iconList[chooseOne]);
 	}
 	return (
-		<div className='btn'>
+		<div className='btn' data-testid="btn">
 			<button onClick={() => {
 				setTimeout(clickHandle, 3000)
 			}}>
