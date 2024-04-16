@@ -16,19 +16,21 @@ import './MyButton.css';
 
 const MyButton = () => {
 	const [randomIcon, setRandomIcon] = useState();
+
 	const clickHandle = () => {
-		const chooseOne = Math.floor(Math.random() * iconList.length);
-		setRandomIcon(iconList[chooseOne]);
-	}
+		setTimeout(() => {
+			const chooseOne = Math.floor(Math.random() * iconList.length);
+			setRandomIcon(iconList[chooseOne]);
+		}, 3000)
+	};
+	
 	return (
-		<div className='btn' data-testid="btn">
-			<button onClick={() => {
-				setTimeout(clickHandle, 3000)
-			}}>
+		<div className='btn'>
+			<button data-testid="btn" onClick={clickHandle}>
 				Click me!
 			</button>
 			<div className='icon'>
-				{randomIcon && <FontAwesomeIcon icon={randomIcon} />}
+				{randomIcon && <FontAwesomeIcon icon={randomIcon} data-testid="awesomeIcon"/>}
 			</div>
 		</div>
 	);
